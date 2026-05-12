@@ -6,10 +6,10 @@ Live URL: https://stack-saver-ai.vercel.app/
 
 ## Demo
 
-Screenshots / recording:
-- Add screenshot 1 here
-- Add screenshot 2 here
-- Add Loom or YouTube demo link here
+Screenshots :
+<img src="S" alt="" />
+<img src="S2" alt="" />
+<img src="S1" alt="" />
 
 ## Quick Start
 

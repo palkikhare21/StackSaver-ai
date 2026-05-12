@@ -113,3 +113,4 @@ export default function AuditResults({ result }: Props) {
     </section>
   );
 }
+
