@@ -10,15 +10,16 @@ export default function AuditPage() {
         </Link>
 
         <div className="mt-10 max-w-3xl">
-          <p className="text-sm font-medium text-slate-500">Step 1 of 3</p>
+          <p className="text-sm font-medium text-slate-500">Free AI Spend Audit</p>
 
           <h1 className="mt-4 text-4xl font-bold tracking-tight md:text-6xl">
-            Tell us what AI tools you pay for
+            Tell us what AI tools your team pays for
           </h1>
 
           <p className="mt-5 leading-8 text-slate-600">
-            Add your team size, primary use case, and monthly spend across your
-            AI tools. We’ll turn this into an audit with estimated savings.
+            Add your team size, primary use case, and monthly AI tool spend.
+            StackSaver AI will estimate unused seats, duplicate tools, billing
+            mismatches, and possible monthly savings.
           </p>
         </div>
 
