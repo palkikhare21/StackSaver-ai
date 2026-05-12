@@ -10,7 +10,9 @@ export default function AuditPage() {
         </Link>
 
         <div className="mt-10 max-w-3xl">
-          <p className="text-sm font-medium text-slate-500">Free AI Spend Audit</p>
+          <p className="text-sm font-medium text-slate-500">
+            Free AI Spend Audit
+          </p>
 
           <h1 className="mt-4 text-4xl font-bold tracking-tight md:text-6xl">
             Tell us what AI tools your team pays for
