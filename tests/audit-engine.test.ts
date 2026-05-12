@@ -100,7 +100,8 @@ describe("runAudit", () => {
       ],
     });
 
-    expect(result.totalMonthlySavings).toBe(750);
+    // expect(result.totalMonthlySavings).toBe(750);
+    expect(result.totalMonthlySavings).toBe(3000);
     expect(result.savingsLevel).toBe("high");
   });
 });

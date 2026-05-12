@@ -32,7 +32,8 @@ export const pricingData: Record<string, Record<string, number>> = {
   },
   ChatGPT: {
     Free: 0,
-    Plus: 200,
+    Plus: 20,
+    Pro: 200,
     Team: 30,
     Enterprise: 60,
     "API direct": 0,

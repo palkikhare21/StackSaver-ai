@@ -53,25 +53,31 @@ export function runAudit(input: AuditInput): AuditResult {
 
     let recommendedAction = "Keep current setup";
     let recommendedSpend = currentSpend;
-    let reason = "Your current spend looks reasonable for the selected tool and team size.";
+    let reason =
+      "Your current spend looks reasonable for the selected tool and team size.";
 
     if (currentSpend === 0) {
       recommendedAction = "No paid optimization needed";
       recommendedSpend = 0;
       reason = "This tool is currently not adding paid monthly spend.";
     } else if (
-      (entry.plan === "Team" || entry.plan === "Business" || entry.plan === "Enterprise") &&
+      (entry.plan === "Team" ||
+        entry.plan === "Business" ||
+        entry.plan === "Enterprise") &&
       teamSize <= 2
     ) {
       recommendedAction = "Downgrade to an individual or pro plan";
       recommendedSpend = Math.min(currentSpend, seats * 20);
       reason =
         "Team or enterprise plans are usually unnecessary for very small teams unless admin controls are required.";
-    } else if (officialSeatPrice && currentSpend > officialSeatPrice * seats * 1.25) {
+    } else if (
+      officialSeatPrice !== null &&
+      currentSpend > officialSeatPrice * seats * 1.25
+    ) {
       recommendedAction = "Review seat count and billing";
       recommendedSpend = officialSeatPrice * seats;
       reason =
-        "Your reported spend is higher than the expected vendor price for the selected plan and seats.";
+        "Your reported spend is significantly higher than the expected vendor pricing for the selected plan and number of seats.";
     } else if (
       input.useCase === "coding" &&
       (entry.tool === "Claude" || entry.tool === "ChatGPT") &&
@@ -123,7 +129,11 @@ export function runAudit(input: AuditInput): AuditResult {
   const totalAnnualSavings = totalMonthlySavings * 12;
 
   const savingsLevel =
-    totalMonthlySavings > 500 ? "high" : totalMonthlySavings >= 100 ? "medium" : "low";
+    totalMonthlySavings > 500
+      ? "high"
+      : totalMonthlySavings >= 100
+        ? "medium"
+        : "low";
 
   return {
     recommendations,
