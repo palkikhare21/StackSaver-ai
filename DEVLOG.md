@@ -1,4 +1,4 @@
-## Day 1 — 2026-05-11
+## Day 1 — 2026-05-8
 
 **Hours worked:** 2
 
@@ -10,7 +10,7 @@
 
 **Plan for tomorrow:** Build the AI spend input form with tool selection, plan selection, monthly spend, seats, team size, primary use case, validation, and localStorage persistence.
 
-## Day 2 — 2026-05-12
+## Day 2 — 2026-05-9
 
 **Hours worked:** 3
 
@@ -22,7 +22,7 @@
 
 **Plan for tomorrow:** Build the audit engine with hardcoded pricing rules, calculate per-tool and total savings, and add automated tests for the audit logic.
 
-## Day 3 — 2026-05-13
+## Day 3 — 2026-05-10
 
 **Hours worked:** 3
 

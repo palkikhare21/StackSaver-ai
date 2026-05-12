@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { runAudit, AuditResult } from "@/lib/audit-engine";
+import AuditResults from "./AuditResults";
 
 type ToolEntry = {
   id: string;
@@ -73,6 +75,7 @@ const initialFormState = getInitialFormState();
 const [teamSize, setTeamSize] = useState(initialFormState.teamSize);
 const [useCase, setUseCase] = useState(initialFormState.useCase);
 const [entries, setEntries] = useState<ToolEntry[]>(initialFormState.entries);
+const [result, setResult] = useState<AuditResult | null>(null);
 
   useEffect(() => {
     localStorage.setItem(
@@ -100,19 +103,32 @@ const [entries, setEntries] = useState<ToolEntry[]>(initialFormState.entries);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const payload = {
-      teamSize,
-      useCase,
-      entries,
-    };
-
-    console.log("Audit payload:", payload);
-    alert("Form saved. Tomorrow we will connect this to the audit engine.");
+  const payload = {
+    teamSize,
+    useCase: useCase as
+      | "coding"
+      | "writing"
+      | "data"
+      | "research"
+      | "mixed",
+    entries,
   };
 
+  const auditResult = runAudit(payload);
+
+  setResult(auditResult);
+
+  window.scrollTo({
+    top: document.body.scrollHeight,
+    behavior: "smooth",
+  });
+};
+
   return (
+
+    <>
     <form onSubmit={handleSubmit} className="mt-10 space-y-8">
       <div className="grid gap-5 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:grid-cols-2">
         <div>
@@ -259,5 +275,7 @@ const [entries, setEntries] = useState<ToolEntry[]>(initialFormState.entries);
         </button>
       </div>
     </form>
+      {result && <AuditResults result={result} />}
+  </>
   );
 }
